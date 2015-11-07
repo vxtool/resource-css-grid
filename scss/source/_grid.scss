@@ -1,0 +1,123 @@
+// Breakpoints
+///
+/// @author Hemerson Vianna
+///
+/// @access public
+///
+
+$screen-base: 1300px !default;
+//Smartphones (portrait)
+$screen-phone-portrait: 320px !default;
+//Smartphones (landscape)
+$screen-phone-landscape: 480px !default;
+//Small tablet
+$screen-tablet-small: 600px !default;
+//Tablet (portrait)
+$screen-tablet-portrait: 768px !default;
+//Tablet (landscape) / Desktop
+$screen-desktop: 992px !default;
+//Wide
+$screen-wide: 1300px !default;
+$screen-phone-portrait-max: ( $screen-phone-landscape - 1 );
+$screen-phone-landscape-max: ( $screen-tablet-small - 1 );
+$screen-tablet-small-max: ( $screen-tablet-portrait - 1 );
+$screen-tablet-portrait-max: ( $screen-desktop - 1 );
+$screen-desktop-max: ( $screen-wide - 1 );
+
+
+// Semantic grid
+/// 
+/// @author Hemerson Vianna
+/// 
+/// @access public
+///
+
+$total-width : 100%;
+$total-columns : 12;
+$padding-width : 10px;
+$columns : 12;
+$push : 0 !default;
+
+
+// Largura baseada no grid
+/// 
+/// @author Hemerson Vianna
+/// 
+/// @param {number} $columns
+///
+/// @access public
+///
+
+@function x-gridsystem-width($columns) {
+  @return ($total-width / $total-columns) * $columns;
+}
+
+
+// Calculo do grid
+/// 
+/// @author Hemerson Vianna
+/// 
+/// @param {number} $colNumber
+/// @param {number} $totalColumns
+///
+/// @access public
+///
+
+@function x-grid-calc($colNumber, $totalColumns) {
+  @return percentage(($colNumber / $totalColumns));
+}
+
+
+// Grid
+///
+/// @author Hemerson Vianna
+///
+/// @access public
+///
+
+[class*="col-"] {
+    display: inline;
+    float: left;
+    padding-left: $padding-width;
+    padding-right: $padding-width;
+}
+
+// Extra small 320
+@for $i from 1 through $total-columns {
+    .col-xs-#{$i} { width: x-gridsystem-width($i); }
+}
+
+@for $i from 1 through $total-columns {
+    .col-xs-offset-#{$i} { margin-left: x-gridsystem-width($i); }
+}
+
+// Small 768
+@media(min-width:$screen-tablet-portrait) {
+  @for $i from 1 through $total-columns {
+    .col-sm-#{$i} { width: x-gridsystem-width($i); }
+  }
+
+  @for $i from 1 through $total-columns {
+    .col-sm-offset-#{$i} { margin-left: x-gridsystem-width($i); }
+  }
+}
+// Medium 992
+@media(min-width:$screen-desktop) {
+  @for $i from 1 through $total-columns {
+    .col-md-#{$i} { width: x-gridsystem-width($i); }
+  }
+
+  @for $i from 1 through $total-columns {
+    .col-md-offset-#{$i} { margin-left: x-gridsystem-width($i); }
+  }
+}
+// Large 1300
+@media(min-width:$screen-wide) {
+  @for $i from 1 through $total-columns {
+    .col-lg-#{$i} { width: x-gridsystem-width($i); }
+  }
+
+  @for $i from 1 through $total-columns {
+    .col-lg-offset-#{$i} { margin-left: x-gridsystem-width($i); }
+  }
+}
