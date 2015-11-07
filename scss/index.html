@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Grid</title>
+		<link rel="stylesheet" href="style.css">
+		<style>
+			*{margin: 0; padding: 0;}
+			[class*="col-"] {
+				background: #ccc;
+				border: 1px solid #999;
+				height: 50px;
+			}
+
+			.container {margin-bottom: 10px;}
+			.container:before,
+			.container:after {content: " "; display: table;}
+  			.container:after {clear: both;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-1"></div>
+		</div>
+		<div class="container">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-2"></div>
+		</div>
+	</body>
+</html>
